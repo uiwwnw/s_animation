@@ -57,10 +57,9 @@ const config = {
     }
     , plugins: [
         new HtmlWebpackPlugin({
-            // template: '!!pug-loader!./src/index.pug',
-            inject: false,
-            template: require('html-webpack-template-pug'),
-
+            template: '!!pug-loader!./src/index.pug',
+            // inject: false,
+            // template: require('html-webpack-template-pug'),
             // Optional 
             // appMountId: 'app',
             // appMountId: ['app1', 'app2'] 
@@ -92,7 +91,7 @@ const config = {
             //         }
             //     ]
             // },
-            title: 'uiwwnw"s scss animation'
+            title: "uiwwnw's scss animation"
         })
     ]
 

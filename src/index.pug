@@ -1,12 +1,28 @@
 doctype html
 html(lang="ko")
+  head
+    title uiwwnw's scss animation
   body
-    h1 Pug - node template engined
-    #container.col
-      if youAreUsingPug
-        p You are amazing
-      else
-        p Get on it!
-      p.
-        Pug is a terse and simple templating language with a
-        strong focus on performance and powerful features.
+    -
+      var list=[
+        '저를 표현할 수 있는건',
+        '제가 무엇을 가장 좋아하냐란 질문과',
+        '같지 않을까 생각합니다',
+        '저는',
+        '치즈를',
+        '가장',
+        '좋아합니다',
+        '치즈',
+        'CHEESE',
+        'C H E E S E',
+        'C',
+        'H',
+        'E',
+        'E',
+        'S',
+        'E'
+      ]
+    each item in list
+      div
+        p= item
+      

@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+div {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-size: 0;
+    text-align: center;
+    transform: perspective(100px) translate3d(0, -100px, -100px);
+    
+
+    &:first-child {
+        transition: transform 3s;
+        transform: perspective(100px) translate3d(0, 0, 100px);
+    }
+
+    &:after {
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+        content: "";
+    }
+
+    p {
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+        font-size: 16px;
+    }
+}
