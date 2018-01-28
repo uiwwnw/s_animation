@@ -8,12 +8,16 @@ div {
     left: 0;
     font-size: 0;
     text-align: center;
-    transform: perspective(100px) translate3d(0, -100px, -100px);
-    
+    transform: scale(0);
 
-    &:first-child {
-        transition: transform 3s;
-        transform: perspective(100px) translate3d(0, 0, 100px);
+    &.active {
+        transform: scale(5);
+
+        @for $i from 1 through 10 {
+            &.times-#{$i} {
+                transition: transform #{$i}s;
+            }
+        }
     }
 
     &:after {

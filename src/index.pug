@@ -5,24 +5,72 @@ html(lang="ko")
   body
     -
       var list=[
-        '저를 표현할 수 있는건',
-        '제가 무엇을 가장 좋아하냐란 질문과',
-        '같지 않을까 생각합니다',
-        '저는',
-        '치즈를',
-        '가장',
-        '좋아합니다',
-        '치즈',
-        'CHEESE',
-        'C H E E S E',
-        'C',
-        'H',
-        'E',
-        'E',
-        'S',
-        'E'
+        {
+          text: '저를 표현할 수 있는건',
+          time: 1 
+        },
+        {
+          text: '제가 무엇을 가장 좋아하냐란 질문과',
+          time: 1 
+        },
+        {
+          text: '같지 않을까 생각합니다',
+          time: 1 
+        },
+        {
+          text: '저는',
+          time: 1 
+        },
+        {
+          text: '치즈를',
+          time: 1 
+        },
+        {
+          text: '가장',
+          time: 1 
+        },
+        {
+          text: '좋아합니다',
+          time: 1 
+        },
+        {
+          text: '치즈',
+          time: 1 
+        },
+        {
+          text: 'CHEESE',
+          time: 1 
+        },
+        {
+          text: 'C H E E S E',
+          time: 1 
+        },
+        {
+          text: 'C',
+          time: 1 
+        },
+        {
+          text: 'H',
+          time: 1 
+        },
+        {
+          text: 'E',
+          time: 1 
+        },
+        {
+          text: 'E',
+          time: 1 
+        },
+        {
+          text: 'S',
+          time: 1 
+        },
+        {
+          text: 'E',
+          time: 1 
+        }
       ]
     each item in list
-      div
-        p= item
+      div(class='times-'+item.time)
+        p=item.text
       

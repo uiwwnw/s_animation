@@ -104,7 +104,68 @@ if(false) {
 "use strict";
 
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 __webpack_require__(0);
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var active = function () {
+    function active(time) {
+        _classCallCheck(this, active);
+
+        this.el = document.getElementsByTagName('div')[0];
+        this._time = time;
+    }
+
+    _createClass(active, [{
+        key: 'method',
+        value: function method() {
+            this.el.classList.add('active');
+        }
+    }]);
+
+    return active;
+}();
+
+var rep = function () {
+    function rep() {
+        _classCallCheck(this, rep);
+    }
+
+    _createClass(rep, [{
+        key: 'repeat',
+        value: function repeat() {
+            this.method();
+        }
+    }]);
+
+    return rep;
+}();
+
+// class sto extends active {
+//     constructor() {
+//         super();
+//         this._sto = 0;
+//         // this._time = 500;
+//     }
+//     return() {
+//         const th = this;
+//         // console.log(this.method());
+//         clearTimeout(this._sto);
+//         this._sto = setTimeout(function() {
+//             th.method();
+//         }, this._time);
+//     }
+// }
+
+// const e = new active;
+// console.log(e)
+// e.method(1000);
+// const a = new sto();
+// a.return()
+// console.log(a.return())
+// a.method()
 
 /***/ }),
 /* 2 */
@@ -115,7 +176,7 @@ exports = module.exports = __webpack_require__(3)(true);
 
 
 // module
-exports.push([module.i, "div {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  font-size: 0;\n  text-align: center;\n  transform: perspective(100px) translate3d(0, -100px, -100px); }\n  div:first-child {\n    transition: transform 3s;\n    transform: perspective(100px) translate3d(0, 0, 100px); }\n  div:after {\n    display: inline-block;\n    height: 100%;\n    vertical-align: middle;\n    content: \"\"; }\n  div p {\n    display: inline-block;\n    margin: 0;\n    vertical-align: middle;\n    font-size: 16px; }\n", "", {"version":3,"sources":["/Users/uiwwnwyoon/work/s_animation/src/src/style.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,OAAM;EACN,SAAQ;EACR,UAAS;EACT,QAAO;EACP,aAAY;EACZ,mBAAkB;EAClB,6DAA4D,EAqB/D;EA7BD;IAYQ,yBAAwB;IACxB,uDAAsD,EACzD;EAdL;IAiBQ,sBAAqB;IACrB,aAAY;IACZ,uBAAsB;IACtB,YAAW,EACd;EArBL;IAwBQ,sBAAqB;IACrB,UAAS;IACT,uBAAsB;IACtB,gBAAe,EAClB","file":"style.scss","sourcesContent":["@charset \"utf-8\";\n\ndiv {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    font-size: 0;\n    text-align: center;\n    transform: perspective(100px) translate3d(0, -100px, -100px);\n    \n\n    &:first-child {\n        transition: transform 3s;\n        transform: perspective(100px) translate3d(0, 0, 100px);\n    }\n\n    &:after {\n        display: inline-block;\n        height: 100%;\n        vertical-align: middle;\n        content: \"\";\n    }\n\n    p {\n        display: inline-block;\n        margin: 0;\n        vertical-align: middle;\n        font-size: 16px;\n    }\n}"],"sourceRoot":""}]);
+exports.push([module.i, "div {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  font-size: 0;\n  text-align: center;\n  transform: scale(0); }\n  div.active {\n    transform: scale(5); }\n    div.active.times-1 {\n      transition: transform 1s; }\n    div.active.times-2 {\n      transition: transform 2s; }\n    div.active.times-3 {\n      transition: transform 3s; }\n    div.active.times-4 {\n      transition: transform 4s; }\n    div.active.times-5 {\n      transition: transform 5s; }\n    div.active.times-6 {\n      transition: transform 6s; }\n    div.active.times-7 {\n      transition: transform 7s; }\n    div.active.times-8 {\n      transition: transform 8s; }\n    div.active.times-9 {\n      transition: transform 9s; }\n    div.active.times-10 {\n      transition: transform 10s; }\n  div:after {\n    display: inline-block;\n    height: 100%;\n    vertical-align: middle;\n    content: \"\"; }\n  div p {\n    display: inline-block;\n    margin: 0;\n    vertical-align: middle;\n    font-size: 16px; }\n", "", {"version":3,"sources":["/Users/uiwwnwyoon/work/s_animation/src/src/style.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,OAAM;EACN,SAAQ;EACR,UAAS;EACT,QAAO;EACP,aAAY;EACZ,mBAAkB;EAClB,oBAAmB,EAyBtB;EAjCD;IAWQ,oBAAmB,EAOtB;IAlBL;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,0BAA6B,EAChC;EAhBb;IAqBQ,sBAAqB;IACrB,aAAY;IACZ,uBAAsB;IACtB,YAAW,EACd;EAzBL;IA4BQ,sBAAqB;IACrB,UAAS;IACT,uBAAsB;IACtB,gBAAe,EAClB","file":"style.scss","sourcesContent":["@charset \"utf-8\";\n\ndiv {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    font-size: 0;\n    text-align: center;\n    transform: scale(0);\n\n    &.active {\n        transform: scale(5);\n\n        @for $i from 1 through 10 {\n            &.times-#{$i} {\n                transition: transform #{$i}s;\n            }\n        }\n    }\n\n    &:after {\n        display: inline-block;\n        height: 100%;\n        vertical-align: middle;\n        content: \"\";\n    }\n\n    p {\n        display: inline-block;\n        margin: 0;\n        vertical-align: middle;\n        font-size: 16px;\n    }\n}"],"sourceRoot":""}]);
 
 // exports
 
