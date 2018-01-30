@@ -1,21 +1,46 @@
 import './style.scss';
 
-class active {
+class repeat {
     constructor(time) {
-        this.el = document.getElementsByTagName('div')[0]
+        this._sto;
         this._time = time;
+        this._times = 0;
+        this._done = false;
+    }
+    repeat(method) {
+        if (!this._done) {
+            const _this = this;
+            clearTimeout(_this._sto);
+            _this._sto = setTimeout(function() {
+                _this._times += 1;
+                _this.repeat(method);
+            }, _this._time);
+        }
+    }
+}
+
+class spoidAttr {
+    constructor() {
+        this._arrAttr={};
+    }
+    spoid(el, arr) {
+        arr.forEach(function() {
+            this._arrAttrel.arr.getAttribute(arr);
+        });
+        return this._arrAttr;
+    }
+}
+
+class active extends repeat {
+    constructor() {
+        super();
+        this._el = document.getElementsByTagName('div');
     }
     method() {
-        this.el.classList.add('active');
+        this._time = 3000;
+        this.repeat(this._el[0].classList.add('active'));
     }
 }
-
-class rep {
-    repeat() {
-        this.method();
-    }
-}
-
 
 
 // class sto extends active {
@@ -34,6 +59,8 @@ class rep {
 //     }
 // }
 
+const e = new active;
+e.method();
 // const e = new active;
 // console.log(e)
 // e.method(1000);

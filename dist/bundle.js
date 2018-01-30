@@ -108,40 +108,81 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 __webpack_require__(0);
 
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var active = function () {
-    function active(time) {
+var repeat = function () {
+    function repeat(time) {
+        _classCallCheck(this, repeat);
+
+        this._sto;
+        this._time = time;
+        this._times = 0;
+        this._done = false;
+    }
+
+    _createClass(repeat, [{
+        key: 'repeat',
+        value: function repeat(method) {
+            if (!this._done) {
+                var _this = this;
+                clearTimeout(_this._sto);
+                _this._sto = setTimeout(function () {
+                    _this._times += 1;
+                    _this.repeat(method);
+                }, _this._time);
+            }
+        }
+    }]);
+
+    return repeat;
+}();
+
+var spoidAttr = function () {
+    function spoidAttr() {
+        _classCallCheck(this, spoidAttr);
+
+        this._arrAttr = {};
+    }
+
+    _createClass(spoidAttr, [{
+        key: 'spoid',
+        value: function spoid(el, arr) {
+            arr.forEach(function () {
+                this._arrAttrel.arr.getAttribute(arr);
+            });
+            return this._arrAttr;
+        }
+    }]);
+
+    return spoidAttr;
+}();
+
+var active = function (_repeat) {
+    _inherits(active, _repeat);
+
+    function active() {
         _classCallCheck(this, active);
 
-        this.el = document.getElementsByTagName('div')[0];
-        this._time = time;
+        var _this2 = _possibleConstructorReturn(this, (active.__proto__ || Object.getPrototypeOf(active)).call(this));
+
+        _this2._el = document.getElementsByTagName('div');
+        return _this2;
     }
 
     _createClass(active, [{
         key: 'method',
         value: function method() {
-            this.el.classList.add('active');
+            this._time = 3000;
+            this.repeat(this._el[0].classList.add('active'));
         }
     }]);
 
     return active;
-}();
-
-var rep = function () {
-    function rep() {
-        _classCallCheck(this, rep);
-    }
-
-    _createClass(rep, [{
-        key: 'repeat',
-        value: function repeat() {
-            this.method();
-        }
-    }]);
-
-    return rep;
-}();
+}(repeat);
 
 // class sto extends active {
 //     constructor() {
@@ -159,6 +200,8 @@ var rep = function () {
 //     }
 // }
 
+var e = new active();
+e.method();
 // const e = new active;
 // console.log(e)
 // e.method(1000);
