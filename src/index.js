@@ -1,44 +1,67 @@
 import './style.scss';
 
-class repeat {
-    constructor(time) {
-        this._sto;
-        this._time = time;
-        this._times = 0;
-        this._done = false;
-    }
-    repeat(method) {
-        if (!this._done) {
-            const _this = this;
-            clearTimeout(_this._sto);
-            _this._sto = setTimeout(function() {
-                _this._times += 1;
-                _this.repeat(method);
-            }, _this._time);
+class Event {
+    repeat_method() {
+        if (this._el[this._times] === undefined) {
+            return false;
         }
+        this._el[this._times].classList.add('active');
+        if (this._el[this._times - 1] === undefined) {
+            return false;
+        }
+        this._el[this._times - 1].classList.remove('active');
+        // console.log(this._el);
     }
 }
 
-class spoidAttr {
+class Repeat extends Event {
     constructor() {
-        this._arrAttr={};
+        super();
+        this._sto;
+        this._time;
+        this._finTimes = 1;
+        this._times = 0;
+        this._done = false;
+    }
+    repeat() {
+        if (!this._done === false || this._times < this._finTimes) {
+            const _this = this;
+            clearTimeout(_this._sto);
+            _this._sto = setTimeout(function () {
+                // console.log(_this._times);
+                _this.repeat_method();
+                _this.repeat();
+                _this.return();
+                _this._times += 1;
+            }, _this._time);
+        }
+    }
+    return() {
+        return this._times;
+    }
+}
+
+class SpoidAttr {
+    constructor() {
+        this._arrAttr = {};
     }
     spoid(el, arr) {
-        arr.forEach(function() {
+        arr.forEach(function () {
             this._arrAttrel.arr.getAttribute(arr);
         });
         return this._arrAttr;
     }
 }
 
-class active extends repeat {
+class Animation extends Repeat {
     constructor() {
         super();
         this._el = document.getElementsByTagName('div');
+        this._time = 500;
+        this._finTimes = this._el.length;
     }
     method() {
-        this._time = 3000;
-        this.repeat(this._el[0].classList.add('active'));
+        this.repeat();
     }
 }
 
@@ -59,8 +82,8 @@ class active extends repeat {
 //     }
 // }
 
-const e = new active;
-e.method();
+const start = new Animation;
+start.method();
 // const e = new active;
 // console.log(e)
 // e.method(1000);

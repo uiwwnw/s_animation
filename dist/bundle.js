@@ -114,41 +114,78 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var repeat = function () {
-    function repeat(time) {
-        _classCallCheck(this, repeat);
-
-        this._sto;
-        this._time = time;
-        this._times = 0;
-        this._done = false;
+var Event = function () {
+    function Event() {
+        _classCallCheck(this, Event);
     }
 
-    _createClass(repeat, [{
-        key: 'repeat',
-        value: function repeat(method) {
-            if (!this._done) {
-                var _this = this;
-                clearTimeout(_this._sto);
-                _this._sto = setTimeout(function () {
-                    _this._times += 1;
-                    _this.repeat(method);
-                }, _this._time);
+    _createClass(Event, [{
+        key: 'repeat_method',
+        value: function repeat_method() {
+            if (this._el[this._times] === undefined) {
+                return false;
             }
+            this._el[this._times].classList.add('active');
+            if (this._el[this._times - 1] === undefined) {
+                return false;
+            }
+            this._el[this._times - 1].classList.remove('active');
+            // console.log(this._el);
         }
     }]);
 
-    return repeat;
+    return Event;
 }();
 
-var spoidAttr = function () {
-    function spoidAttr() {
-        _classCallCheck(this, spoidAttr);
+var Repeat = function (_Event) {
+    _inherits(Repeat, _Event);
+
+    function Repeat() {
+        _classCallCheck(this, Repeat);
+
+        var _this2 = _possibleConstructorReturn(this, (Repeat.__proto__ || Object.getPrototypeOf(Repeat)).call(this));
+
+        _this2._sto;
+        _this2._time;
+        _this2._finTimes = 1;
+        _this2._times = 0;
+        _this2._done = false;
+        return _this2;
+    }
+
+    _createClass(Repeat, [{
+        key: 'repeat',
+        value: function repeat() {
+            if (!this._done === false || this._times < this._finTimes) {
+                var _this = this;
+                clearTimeout(_this._sto);
+                _this._sto = setTimeout(function () {
+                    // console.log(_this._times);
+                    _this.repeat_method();
+                    _this.repeat();
+                    _this.return();
+                    _this._times += 1;
+                }, _this._time);
+            }
+        }
+    }, {
+        key: 'return',
+        value: function _return() {
+            return this._times;
+        }
+    }]);
+
+    return Repeat;
+}(Event);
+
+var SpoidAttr = function () {
+    function SpoidAttr() {
+        _classCallCheck(this, SpoidAttr);
 
         this._arrAttr = {};
     }
 
-    _createClass(spoidAttr, [{
+    _createClass(SpoidAttr, [{
         key: 'spoid',
         value: function spoid(el, arr) {
             arr.forEach(function () {
@@ -158,31 +195,32 @@ var spoidAttr = function () {
         }
     }]);
 
-    return spoidAttr;
+    return SpoidAttr;
 }();
 
-var active = function (_repeat) {
-    _inherits(active, _repeat);
+var Animation = function (_Repeat) {
+    _inherits(Animation, _Repeat);
 
-    function active() {
-        _classCallCheck(this, active);
+    function Animation() {
+        _classCallCheck(this, Animation);
 
-        var _this2 = _possibleConstructorReturn(this, (active.__proto__ || Object.getPrototypeOf(active)).call(this));
+        var _this3 = _possibleConstructorReturn(this, (Animation.__proto__ || Object.getPrototypeOf(Animation)).call(this));
 
-        _this2._el = document.getElementsByTagName('div');
-        return _this2;
+        _this3._el = document.getElementsByTagName('div');
+        _this3._time = 500;
+        _this3._finTimes = _this3._el.length;
+        return _this3;
     }
 
-    _createClass(active, [{
+    _createClass(Animation, [{
         key: 'method',
         value: function method() {
-            this._time = 3000;
-            this.repeat(this._el[0].classList.add('active'));
+            this.repeat();
         }
     }]);
 
-    return active;
-}(repeat);
+    return Animation;
+}(Repeat);
 
 // class sto extends active {
 //     constructor() {
@@ -200,8 +238,8 @@ var active = function (_repeat) {
 //     }
 // }
 
-var e = new active();
-e.method();
+var start = new Animation();
+start.method();
 // const e = new active;
 // console.log(e)
 // e.method(1000);
