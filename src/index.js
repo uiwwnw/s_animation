@@ -18,7 +18,6 @@ class Repeat extends Event {
     constructor() {
         super();
         this._sto;
-        this._time;
         this._finTimes = 1;
         this._times = 0;
         this._done = false;
@@ -33,7 +32,7 @@ class Repeat extends Event {
                 _this.repeat();
                 _this.return();
                 _this._times += 1;
-            }, _this._time);
+            }, _this._arrAttr[this._times]);
         }
     }
     return() {
@@ -41,27 +40,21 @@ class Repeat extends Event {
     }
 }
 
-class SpoidAttr {
-    constructor() {
-        this._arrAttr = {};
-    }
-    spoid(el, arr) {
-        arr.forEach(function () {
-            this._arrAttrel.arr.getAttribute(arr);
-        });
-        return this._arrAttr;
-    }
-}
-
 class Animation extends Repeat {
     constructor() {
         super();
+        this._arrAttr = [];
         this._el = document.getElementsByTagName('div');
-        this._time = 500;
         this._finTimes = this._el.length;
     }
     method() {
         this.repeat();
+    }
+    spoid() {
+        for(var i = 0; i < this._el.length; i ++) {
+            this._arrAttr[i] = this._el[i].getAttribute('data-time');
+        }
+        return this._arrAttr;
     }
 }
 
@@ -84,6 +77,7 @@ class Animation extends Repeat {
 
 const start = new Animation;
 start.method();
+start.spoid();
 // const e = new active;
 // console.log(e)
 // e.method(1000);

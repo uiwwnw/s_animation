@@ -8,13 +8,15 @@ div {
     left: 0;
     font-size: 0;
     text-align: center;
-    transform: scale(0);
 
     &.active {
-        transform: scale(5);
+        p {
+            font-size: 10vmin;
+        }
 
         @for $i from 1 through 10 {
-            &.times-#{$i} {
+            $v : $i / 2;
+            &[data-tran="#{$v}"]{
                 transition: transform #{$i}s;
             }
         }
@@ -31,6 +33,6 @@ div {
         display: inline-block;
         margin: 0;
         vertical-align: middle;
-        font-size: 16px;
+        font-size: 0;
     }
 }

@@ -146,7 +146,6 @@ var Repeat = function (_Event) {
         var _this2 = _possibleConstructorReturn(this, (Repeat.__proto__ || Object.getPrototypeOf(Repeat)).call(this));
 
         _this2._sto;
-        _this2._time;
         _this2._finTimes = 1;
         _this2._times = 0;
         _this2._done = false;
@@ -165,7 +164,7 @@ var Repeat = function (_Event) {
                     _this.repeat();
                     _this.return();
                     _this._times += 1;
-                }, _this._time);
+                }, _this._arrAttr[this._times]);
             }
         }
     }, {
@@ -178,26 +177,6 @@ var Repeat = function (_Event) {
     return Repeat;
 }(Event);
 
-var SpoidAttr = function () {
-    function SpoidAttr() {
-        _classCallCheck(this, SpoidAttr);
-
-        this._arrAttr = {};
-    }
-
-    _createClass(SpoidAttr, [{
-        key: 'spoid',
-        value: function spoid(el, arr) {
-            arr.forEach(function () {
-                this._arrAttrel.arr.getAttribute(arr);
-            });
-            return this._arrAttr;
-        }
-    }]);
-
-    return SpoidAttr;
-}();
-
 var Animation = function (_Repeat) {
     _inherits(Animation, _Repeat);
 
@@ -206,8 +185,8 @@ var Animation = function (_Repeat) {
 
         var _this3 = _possibleConstructorReturn(this, (Animation.__proto__ || Object.getPrototypeOf(Animation)).call(this));
 
+        _this3._arrAttr = [];
         _this3._el = document.getElementsByTagName('div');
-        _this3._time = 500;
         _this3._finTimes = _this3._el.length;
         return _this3;
     }
@@ -216,6 +195,14 @@ var Animation = function (_Repeat) {
         key: 'method',
         value: function method() {
             this.repeat();
+        }
+    }, {
+        key: 'spoid',
+        value: function spoid() {
+            for (var i = 0; i < this._el.length; i++) {
+                this._arrAttr[i] = this._el[i].getAttribute('data-time');
+            }
+            return this._arrAttr;
         }
     }]);
 
@@ -240,6 +227,7 @@ var Animation = function (_Repeat) {
 
 var start = new Animation();
 start.method();
+start.spoid();
 // const e = new active;
 // console.log(e)
 // e.method(1000);
@@ -257,7 +245,7 @@ exports = module.exports = __webpack_require__(3)(true);
 
 
 // module
-exports.push([module.i, "div {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  font-size: 0;\n  text-align: center;\n  transform: scale(0); }\n  div.active {\n    transform: scale(5); }\n    div.active.times-1 {\n      transition: transform 1s; }\n    div.active.times-2 {\n      transition: transform 2s; }\n    div.active.times-3 {\n      transition: transform 3s; }\n    div.active.times-4 {\n      transition: transform 4s; }\n    div.active.times-5 {\n      transition: transform 5s; }\n    div.active.times-6 {\n      transition: transform 6s; }\n    div.active.times-7 {\n      transition: transform 7s; }\n    div.active.times-8 {\n      transition: transform 8s; }\n    div.active.times-9 {\n      transition: transform 9s; }\n    div.active.times-10 {\n      transition: transform 10s; }\n  div:after {\n    display: inline-block;\n    height: 100%;\n    vertical-align: middle;\n    content: \"\"; }\n  div p {\n    display: inline-block;\n    margin: 0;\n    vertical-align: middle;\n    font-size: 16px; }\n", "", {"version":3,"sources":["/Users/uiwwnwyoon/work/s_animation/src/src/style.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,OAAM;EACN,SAAQ;EACR,UAAS;EACT,QAAO;EACP,aAAY;EACZ,mBAAkB;EAClB,oBAAmB,EAyBtB;EAjCD;IAWQ,oBAAmB,EAOtB;IAlBL;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,yBAA6B,EAChC;IAhBb;MAegB,0BAA6B,EAChC;EAhBb;IAqBQ,sBAAqB;IACrB,aAAY;IACZ,uBAAsB;IACtB,YAAW,EACd;EAzBL;IA4BQ,sBAAqB;IACrB,UAAS;IACT,uBAAsB;IACtB,gBAAe,EAClB","file":"style.scss","sourcesContent":["@charset \"utf-8\";\n\ndiv {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    font-size: 0;\n    text-align: center;\n    transform: scale(0);\n\n    &.active {\n        transform: scale(5);\n\n        @for $i from 1 through 10 {\n            &.times-#{$i} {\n                transition: transform #{$i}s;\n            }\n        }\n    }\n\n    &:after {\n        display: inline-block;\n        height: 100%;\n        vertical-align: middle;\n        content: \"\";\n    }\n\n    p {\n        display: inline-block;\n        margin: 0;\n        vertical-align: middle;\n        font-size: 16px;\n    }\n}"],"sourceRoot":""}]);
+exports.push([module.i, "div {\n  position: absolute;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  font-size: 0;\n  text-align: center; }\n  div.active p {\n    font-size: 10vmin; }\n  div.active[data-tran=\"0.5\"] {\n    transition: transform 1s; }\n  div.active[data-tran=\"1\"] {\n    transition: transform 2s; }\n  div.active[data-tran=\"1.5\"] {\n    transition: transform 3s; }\n  div.active[data-tran=\"2\"] {\n    transition: transform 4s; }\n  div.active[data-tran=\"2.5\"] {\n    transition: transform 5s; }\n  div.active[data-tran=\"3\"] {\n    transition: transform 6s; }\n  div.active[data-tran=\"3.5\"] {\n    transition: transform 7s; }\n  div.active[data-tran=\"4\"] {\n    transition: transform 8s; }\n  div.active[data-tran=\"4.5\"] {\n    transition: transform 9s; }\n  div.active[data-tran=\"5\"] {\n    transition: transform 10s; }\n  div:after {\n    display: inline-block;\n    height: 100%;\n    vertical-align: middle;\n    content: \"\"; }\n  div p {\n    display: inline-block;\n    margin: 0;\n    vertical-align: middle;\n    font-size: 0; }\n", "", {"version":3,"sources":["/Users/uiwwnwyoon/work/s_animation/src/src/style.scss"],"names":[],"mappings":"AAEA;EACI,mBAAkB;EAClB,OAAM;EACN,SAAQ;EACR,UAAS;EACT,QAAO;EACP,aAAY;EACZ,mBAAkB,EA4BrB;EAnCD;IAWY,kBAAiB,EACpB;EAZT;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,yBAA6B,EAChC;EAlBb;IAiBgB,0BAA6B,EAChC;EAlBb;IAuBQ,sBAAqB;IACrB,aAAY;IACZ,uBAAsB;IACtB,YAAW,EACd;EA3BL;IA8BQ,sBAAqB;IACrB,UAAS;IACT,uBAAsB;IACtB,aAAY,EACf","file":"style.scss","sourcesContent":["@charset \"utf-8\";\n\ndiv {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    font-size: 0;\n    text-align: center;\n\n    &.active {\n        p {\n            font-size: 10vmin;\n        }\n\n        @for $i from 1 through 10 {\n            $v : $i / 2;\n            &[data-tran=\"#{$v}\"]{\n                transition: transform #{$i}s;\n            }\n        }\n    }\n\n    &:after {\n        display: inline-block;\n        height: 100%;\n        vertical-align: middle;\n        content: \"\";\n    }\n\n    p {\n        display: inline-block;\n        margin: 0;\n        vertical-align: middle;\n        font-size: 0;\n    }\n}"],"sourceRoot":""}]);
 
 // exports
 

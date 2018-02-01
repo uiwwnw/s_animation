@@ -7,70 +7,86 @@ html(lang="ko")
       var list=[
         {
           text: '저를 표현할 수 있는건',
-          time: 1 
+          time: 1000,
+          tran: 1
         },
         {
           text: '제가 무엇을 가장 좋아하냐란 질문과',
-          time: 1 
+          time: 2000 ,
+          tran: 2
         },
         {
           text: '같지 않을까 생각합니다',
-          time: 1 
+          time: 1000 ,
+          tran: 1
         },
         {
           text: '저는',
-          time: 1 
+          time: 3000,
+          tran: 0
         },
         {
           text: '치즈를',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: '가장',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: '좋아합니다',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: '치즈',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: 'CHEESE',
-          time: 1 
+          time: 3000 ,
+          tran: 0
         },
         {
           text: 'C H E E S E',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: 'C',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: 'H',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: 'E',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: 'E',
-          time: 1 
+          time: 1000 ,
+          tran: 0
         },
         {
           text: 'S',
-          time: 1 
+          time: 2000 ,
+          tran: 0
         },
         {
           text: 'E',
-          time: 1 
+          time: 1 ,
+          tran: 0
         }
       ]
     each item in list
-      div(class='times-'+item.time)
+      div(data-time=item.time data-tran=item.tran)
         p=item.text
       
