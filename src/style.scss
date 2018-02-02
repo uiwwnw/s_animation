@@ -1,4 +1,5 @@
 @charset "utf-8";
+@import "_ani";
 
 div {
     position: absolute;
@@ -16,7 +17,7 @@ div {
 
         @for $i from 1 through 10 {
             $v : $i / 2;
-            &[data-tran="#{$v}"]{
+            &[data-transition="#{$v}"]{
                 transition: transform #{$i}s;
             }
         }

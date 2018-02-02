@@ -6,87 +6,176 @@ html(lang="ko")
     -
       var list=[
         {
-          text: '저를 표현할 수 있는건',
+          text: '나를',
           time: 1000,
-          tran: 1
+          transition: 2,
+          transform: 'scale(2)'
         },
         {
-          text: '제가 무엇을 가장 좋아하냐란 질문과',
-          time: 2000 ,
-          tran: 2
+          text: '표',
+          time: 300,
+          transform: 'translate(-4%, 0%) scale(2)'
         },
         {
-          text: '같지 않을까 생각합니다',
-          time: 1000 ,
-          tran: 1
+          text: '현',
+          time: 300,
+          transform: 'translate(4%, 0%) scale(2)'
         },
         {
-          text: '저는',
-          time: 3000,
-          tran: 0
+          text: '하는건',
+          time: 900,
+          transition: 2,
+          transform: 'translate(0%, 9%)'
+        },
+        {
+          text: '내가',
+          time: 1500,
+          transition: 2,
+          transform: 'scale(1.1)'
+        },
+        {
+          text: '제일 좋아하는',
+          time: 900,
+          transition: 2,
+          transform: 'scale(2)'
+        },
+        {
+          text: '무언가',
+          time: 800,
+          transition: 2,
+          transform: 'rotate(30deg)'
+        },
+        {
+          text: '그 자체',
+          time: 1500,
+          transition: 2,
+          transform: 'scale(1.1)'
+        },
+        {
+          text: '라고 생각합니다',
+          time: 1900,
+          transition: 1,
+          transform: 'translate(9%, 0%)'
+        },
+        {
+          text: '전',
+          time: 900,
+          transition: 0,
+          transform: 'scale(.7)'
         },
         {
           text: '치즈를',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 0,
+          transform: 'scale(1.4)'
         },
         {
           text: '가장',
-          time: 1000 ,
-          tran: 0
+          time: 800,
+          transition: 0,
+          transform: 'scale(1.6)'
         },
         {
           text: '좋아합니다',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 1,
+          transform: 'scale(1.1)'
         },
         {
           text: '치즈',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 1,
+          transform: 'scale(1.1)'
+        },
+        {
+          text: '영어론',
+          time: 1000,
+          transition: 1,
+          transform: 'scale(1.1)'
         },
         {
           text: 'CHEESE',
-          time: 3000 ,
-          tran: 0
+          time: 900,
+          transition: 1,
+          transform: 'scale(1.1)'
+        },
+        {
+          text: '알파벳',
+          time: 900,
+        },
+        {
+          text: '하나',
+          time: 900,
+          transition: 1,
+          transform: 'translate(-3%, -9%)'
+        },
+        {
+          text: '하나씩',
+          time: 900,
+          transition: 1,
+          transform: 'translate(3%, 9%)'
+        },
+        {
+          text: '때어내고',
+          time: 900,
+          transition: 1,
+          transform: 'tranlate(-9%, 0%)'
         },
         {
           text: 'C H E E S E',
-          time: 1000 ,
-          tran: 0
+          time: 1300,
+          transition: 0
+        },
+        {
+          text: '늘리고',
+          time: 900,
+          transition: 1,
+          transform: 'skewX(50deg)'
+        },
+        {
+          text: '돌리고',
+          time: 900,
+          transition: 1,
+          transform: 'rotate(180deg)'
+        },
+        {
+          text: '해서',
+          time: 900,
+          transition: 1,
+          transform: 'scale(1.1)'
         },
         {
           text: 'C',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 0
         },
         {
           text: 'H',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 0
         },
         {
           text: 'E',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 0
         },
         {
           text: 'E',
-          time: 1000 ,
-          tran: 0
+          time: 1000,
+          transition: 0
         },
         {
           text: 'S',
-          time: 2000 ,
-          tran: 0
+          time: 2000,
+          transition: 0
         },
         {
           text: 'E',
-          time: 1 ,
-          tran: 0
+          time: 1000,
+          transition: 0
         }
       ]
     each item in list
-      div(data-time=item.time data-tran=item.tran)
+      div(data-time=item.time data-transition=item.transition data-transform=item.transform)
         p=item.text
       
