@@ -1,7 +1,7 @@
 {
   "name": "s_animation",
   "version": "0.1.0",
-  "description": "uiwwnw's scss animation",
+  "description": "uiwwnw's jade scss animation",
   "main": "index.js",
   "scripts": {
     "start": "webpack --watch",
