@@ -1,36 +1,49 @@
 .active {
-    @for $i from 3 through 10 {
-        &[data-transform*="scale(#{$i})"] {
-            transform: scale(#{$i});
-        }
-    }
-    @for $i from 1 through 20 {
-        $j: $i / 10;
-        &[data-transform*="scale(#{$j})"] {
-            transform: scale(#{$j});
-        }
-    }
-    @for $i from -50 through 50 {
-        &[data-transform*="skewX(#{$i}deg)"] {
-            transform: skewX(#{$i}deg);
-        }
-        &[data-transform*="skewY(#{$i}deg)"] {
-            transform: skewY(#{$i}deg);
-        }
-    }
-    @for $i from -45 through 180 {
-        &[data-transform*="rotate(#{$i}deg)"] {
-            transform: rotate(#{$i}deg);
+    @for $i from 1 through 50 {
+        $v : $i / 10;
+        &[data-transition="#{$v}"]{
+            transition: #{$v}s;
         }
     }
 
-    @for $i from -9 through 9 {
-        $i: $i + '%';
-        @for $j from -9 through 9 {
-            $j: $j + '%';
-            &[data-transform*="translate(#{$i}, #{$j})"] {
-                transform: translate(#{$i}, #{$j});
-            }
-        }
-    }
+    // @for $i from 3 through 10 {
+    //     &[data-ex-transform="scale(#{$i})"] {
+    //         transform: scale(#{$i});
+    //     }
+    // } 
+    // @for $i from 1 through 20 {
+    //     $j: $i / 10;
+    //     &[data-ex-transform="scale(#{$j})"] {
+    //         transform: scale(#{$j});
+    //     }
+    // }
+    // @for $i from -5 through 5 {
+    //     $i: $i * 10;
+    //     &[data-ex-transform="skewX(#{$i}deg)"] {
+    //         transform: skewX(#{$i}deg);
+    //     }
+    //     &[data-ex-transform="skewY(#{$i}deg)"] {
+    //         transform: skewY(#{$i}deg);
+    //     }
+    // }
+    // @for $i from -36 through 36 {
+    //     $i: $i * 10;
+    //     &[data-ex-transform="rotate(#{$i}deg)"] {
+    //         transform: rotate(#{$i}deg);
+    //     }
+    // }
+
+    // @for $i from -20 through 20 {
+    //     $i: $i;
+    //     &[data-ex-left="#{$i}%"] {
+    //         left: $i+%;
+    //     }
+    // }
+
+    // @for $i from -20 through 20 {
+    //     $i: $i;
+    //     &[data-ex-top="#{$i}%"] {
+    //         top: $i+%;
+    //     }
+    // }
 }

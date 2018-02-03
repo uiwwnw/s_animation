@@ -6,6 +6,7 @@ class Event {
             return false;
         }
         this._el[this._times].classList.add('active');
+        (this._arrAttr.transform[this._times]!==null)&&(this._el[this._times].setAttribute('style', 'transform:' + this._arrAttr.transform[this._times]));
         if (this._el[this._times - 1] === undefined) {
             return false;
         }
@@ -32,7 +33,7 @@ class Repeat extends Event {
                 _this.repeat();
                 _this.return();
                 _this._times += 1;
-            }, _this._arrAttr[this._times]);
+            }, _this._arrAttr.time[this._times]);
         }
     }
     return() {
@@ -43,7 +44,11 @@ class Repeat extends Event {
 class Animation extends Repeat {
     constructor() {
         super();
-        this._arrAttr = [];
+        this._arrAttr = {};
+        this._arrAttr.time = [];
+        this._arrAttr.transition = [];
+        this._arrAttr.transform = [];
+        this._arrAttr.exTransform = [];
         this._el = document.getElementsByTagName('div');
         this._finTimes = this._el.length;
     }
@@ -52,8 +57,13 @@ class Animation extends Repeat {
     }
     spoid() {
         for(var i = 0; i < this._el.length; i ++) {
-            this._arrAttr[i] = this._el[i].getAttribute('data-time');
+            this._arrAttr.time[i] = this._el[i].getAttribute('data-time');
+            this._arrAttr.transition[i] = this._el[i].getAttribute('data-transition');
+            this._arrAttr.transform[i] = this._el[i].getAttribute('data-transform');
+            this._arrAttr.exTransform[i] = this._el[i].getAttribute('data-ex-transform');
+            this._el[i].setAttribute('style', 'transform:'+this._arrAttr.exTransform[i]);
         }
+        // console.log(this._arrAttr);
         return this._arrAttr;
     }
 }
