@@ -2,9 +2,7 @@
     @for $i from 1 through 50 {
         $v : $i / 10;
         &[data-transition="#{$v}"]{
-            p {
-                transition: transform #{$v}s;
-            }
+            transition: transform #{$v}s;
         }
     }
 

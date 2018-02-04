@@ -22,7 +22,7 @@ class Event extends El {
             return false;
         }
         this._el[this._times].classList.add('active');
-        (this._arrAttr.transform[this._times] !== null) && (this._el[this._times].querySelector('p').setAttribute('style', 'transform:' + this._arrAttr.transform[this._times]));
+        (this._arrAttr.transform[this._times] !== null) && (this._el[this._times].setAttribute('style', 'transform:' + this._arrAttr.transform[this._times]));
         if (this._el[this._times - 1] === undefined) {
             this._el[this._finTimes - 1].classList.remove('active');
             return false;
@@ -85,7 +85,7 @@ class Animation extends Repeat {
             this._arrAttr.transition[i] = this._el[i].getAttribute('data-transition');
             this._arrAttr.transform[i] = this._el[i].getAttribute('data-transform');
             this._arrAttr.exTransform[i] = this._el[i].getAttribute('data-ex-transform');
-            this._el[i].querySelector('p').setAttribute('style', 'transform:' + this._arrAttr.exTransform[i]);
+            this._el[i].setAttribute('style', 'transform:' + this._arrAttr.exTransform[i]);
         }
         // console.log(this._arrAttr);
         return this._arrAttr;
