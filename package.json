@@ -1,6 +1,6 @@
 {
   "name": "s_animation",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "uiwwnw's jade scss animation",
   "main": "index.js",
   "scripts": {

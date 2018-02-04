@@ -7,6 +7,8 @@
 jade
 > text: 'UIWWNW',// 사용할 텍스트.  
 > time: 1300,// 재생될 시간.  
+> color: "white", // 폰트컬러 black, white 두개.  
+> bg: "black", // 배경색상 black, white 두개.  
 > transition: 2,// 에니메이션 시간.  
 > exTransform: 'scaleX(1.4)',// 기본 위치, 스타일 지정.  
 > transform: 'scaleX(1)'// 재생될 에니메이션.  

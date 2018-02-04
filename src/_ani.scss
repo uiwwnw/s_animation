@@ -2,7 +2,19 @@
     @for $i from 1 through 50 {
         $v : $i / 10;
         &[data-transition="#{$v}"]{
-            transition: #{$v}s;
+            transition: transform #{$v}s;
+        }
+    }
+
+    $theme-list: ("white", #fff), ("black", #000);
+
+    @each $name, $color in $theme-list {
+        &[data-color="#{$name}"]{
+            color: $color;
+        }
+
+        &[data-bg="#{$name}"]{
+            background: $color;
         }
     }
 

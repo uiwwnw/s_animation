@@ -13,6 +13,8 @@ html(lang="ko")
         },
         {
           text: '표',
+          bg: "black",
+          color: "white",
           time: 300,
           //- transition: 1,
           transform: 'translate(-10vmin, 0) scale(2)',
@@ -20,6 +22,8 @@ html(lang="ko")
         },
         {
           text: '현',
+          bg: "white",
+          color: "black",
           time: 300,
           //- transition: 1,
           transform: 'translate(10vmin, 0) scale(2)',
@@ -208,15 +212,18 @@ html(lang="ko")
         {
           text: 'uiwwnw',
           time: 3300,
+          bg: "black",
+          color: "white",
           transition: 3,
           exTransform: 'scaleY(0)',
           transform: 'scale(1)'
-        },{
-          text: '이렇게 제 아이디가 탄생했습니다~',
+        },
+        {
+          text: '이렇게 제 아이디가 탄생했습니다~끝',
           time: 5000,
         }
       ]
     each item in list
-      div(data-time=item.time data-transition=item.transition data-transform=item.transform data-ex-transform=item.exTransform)
+      div(data-time=item.time data-transition=item.transition data-transform=item.transform data-ex-transform=item.exTransform data-bg=item.bg data-color=item.color)
         p=item.text
       
