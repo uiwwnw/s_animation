@@ -1,4 +1,4 @@
-# 텍스트 에니메이션(jade sass animation)
+# 스토리텔링 라이브러리(Storytelling library)
 (preview)[https://codepen.io/uiwwnw/pen/RQrdWm?editors=0100]
 
 `동영상으로, 광고로 유행하던 텍스트 에니메이션을 쉽게 만들어 낼 수 있습니다.`
